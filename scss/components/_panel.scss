@@ -1,9 +1,38 @@
 .panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+
+	width: 114rem;
+	border-radius: 15px;
+	padding: 3rem 3.5rem;
+
+	position: absolute;
+	bottom: -30%;
+
 	&__box {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		height: 11rem;
+		// Works?
+		width: 20%;
+
 		&--label {
+			font-size: 1.4rem;
+			font-weight: $font-bold;
+			letter-spacing: 0.1rem;
+			text-transform: uppercase;
+			color: $dark-grey;
 		}
 
 		&--info {
+			margin-top: 1rem;
+			font-size: 2.6rem;
+			font-weight: $font-bolder;
+			color: $very-dark-grey;
 		}
 	}
 }
