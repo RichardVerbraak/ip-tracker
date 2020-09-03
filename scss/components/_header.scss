@@ -7,7 +7,7 @@
 	background-image: url('../../images/pattern-bg.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 35vh;
+	height: 32rem;
 
 	&__heading {
 		font-weight: $font-bold;
@@ -33,6 +33,10 @@
 
 			width: 45rem;
 
+			&:focus {
+				outline: none;
+			}
+
 			&::placeholder {
 				color: $dark-grey;
 			}
@@ -47,6 +51,12 @@
 			border: none;
 			border-radius: 0px 5px 5px 0px;
 			padding: 2rem;
+
+			cursor: pointer;
+
+			&:focus {
+				outline: none;
+			}
 		}
 
 		&--arrow {
