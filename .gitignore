@@ -1,2 +1,6 @@
 .DS_Store
 *.sketch
+
+README.md
+style-guide.md
+/design
