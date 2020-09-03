@@ -12,13 +12,53 @@
 			href="./images/favicon-32x32.png"
 		/>
 
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="./css/main.css" />
 
 		<title>Frontend Mentor | IP Address Tracker</title>
 	</head>
 	<body>
-		IP Address Tracker Search for any IP address or domain IP Address Location
-		Timezone UTC
+		<div class="header">
+			<h1 class="header__heading">IP Address Tracker</h1>
+			<div class="header__input">
+				<input
+					class="header__input--input"
+					type="text"
+					placeholder="Search for any IP address or domain IP Address Location Timezone UTC"
+				/>
+				<button class="header__input--btn">
+					<img src="/images/icon-arrow.svg" />
+				</button>
+			</div>
+
+			<div class="panel">
+				<div class="panel__box">
+					<p class="panel__box--label">IP Adress</p>
+					<p class="panel__box--info">192.212.174.101</p>
+				</div>
+				<div class="panel__box">
+					<p class="panel__box--label">Location</p>
+					<p class="panel__box--info">Brooklyn, NY 10001</p>
+				</div>
+				<div class="panel__box">
+					<p class="panel__box--label">Timezone</p>
+					<p class="panel__box--info">UTC -05:00</p>
+				</div>
+				<div class="panel__box">
+					<p class="panel__box--label">ISP</p>
+					<p class="panel__box--info">SpaceX Starlink</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Map here -->
+		<!-- <div class="map">
+			
+		</div> -->
+
 		<!-- add offset value dynamically using the API -->
 		ISP
 	</body>
