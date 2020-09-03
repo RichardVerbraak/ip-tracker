@@ -1,0 +1,49 @@
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	background-image: url('../../images/pattern-bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 35vh;
+
+	&__heading {
+		font-weight: $font-bold;
+		letter-spacing: 0.1rem;
+		font-size: 4rem;
+		color: #fff;
+
+		margin-top: 5rem;
+	}
+
+	&__input {
+		display: flex;
+
+		margin-top: 3rem;
+
+		&--input {
+			font-family: $font-primary;
+			font-size: 1.8rem;
+			padding: 1rem 2rem;
+			border: none;
+			border-radius: 5px 0px 0px 5px;
+
+			width: 45rem;
+		}
+
+		&--btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			background-color: $very-dark-grey;
+			border: none;
+			border-radius: 0px 5px 5px 0px;
+			padding: 2rem;
+		}
+
+		&--arrow {
+		}
+	}
+}
