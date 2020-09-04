@@ -4,3 +4,7 @@
 README.md
 style-guide.md
 /design
+
+.env
+
+node_modules
