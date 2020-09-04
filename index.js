@@ -1,5 +1,22 @@
+// DOM Elements
 const input = document.querySelector('.header__input--input')
 const button = document.querySelector('.header__input--btn')
+const map = document.querySelector('#mapid')
+
+let myMap = L.map('mapid').setView([51.505, -0.09], 13)
+L.tileLayer(
+	'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+	{
+		attribution:
+			'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		maxZoom: 18,
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1,
+		accessToken:
+			'pk.eyJ1Ijoibm90eWV0cmF0ZWQiLCJhIjoiY2tlb2R6Mng4Mjc1eTJ5bnAyZDN4YXU3MSJ9.YXRNzz7lF9FGnSD6QPvB2Q',
+	}
+).addTo(myMap)
 
 // Panels
 const ipInfo = document.querySelector('.ip')
