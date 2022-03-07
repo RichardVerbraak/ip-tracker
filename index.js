@@ -14,7 +14,6 @@ button.addEventListener('click', () => {
 })
 
 // Initialize the map with own IP Address on page load
-
 const map = L.map('map', { zoomControl: false })
 
 L.tileLayer(
@@ -31,11 +30,21 @@ L.tileLayer(
 	}
 ).addTo(map)
 
+const updateDOM = ({ ip, location, isp }) => {
+	const { city, country, region, timezone } = location
+
+	ipInfo.textContent = `${ip}`
+	locationInfo.textContent = `${city}, ${country} ${region}`
+	timezoneInfo.textContent = `${timezone}`
+	ispInfo.textContent = `${isp}`
+}
+
 // Draws a new map + a marker based on the locations latitude and longitude
 const drawNewMap = (lat, lng) => {
 	// Changes the map to the new coordinates
 	map.setView([lat, lng], 13)
 
+	// Custom icon
 	const myIcon = L.icon({
 		iconUrl: './images/icon-location.svg',
 		iconSize: [40, 50],
@@ -49,7 +58,7 @@ const drawNewMap = (lat, lng) => {
 	L.marker([lat, lng], { icon: myIcon }).addTo(map)
 }
 
-// Gets the location based on the IP address from the input
+// Get data from IP -> update the header + draw new Leaflet map
 const getIPAdress = async (address) => {
 	// Fetch location based on IP
 	const res = await fetch(
@@ -57,18 +66,15 @@ const getIPAdress = async (address) => {
 			address && `ipAddress=${address}`
 		}`
 	)
-
 	const data = await res.json()
 
 	// Destructure needed data
-	const { ip, location, isp } = data
-	const { city, country, region, timezone, lat, lng } = location
+	const {
+		location: { lat, lng },
+	} = data
 
 	// Change the DOM of the header to reflect the fetched data
-	ipInfo.textContent = `${ip}`
-	locationInfo.textContent = `${city}, ${country} ${region}`
-	timezoneInfo.textContent = `${timezone}`
-	ispInfo.textContent = `${isp}`
+	updateDOM(data)
 
 	// Draw the new Leaflet map
 	drawNewMap(lat, lng)
