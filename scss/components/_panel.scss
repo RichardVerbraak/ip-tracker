@@ -1,36 +1,60 @@
 .panel {
 	display: flex;
-	align-items: center;
 	background-color: #fff;
 
-	height: 11rem;
-	width: 65vw;
+	position: absolute;
+
+	width: 75vw;
 
 	border-radius: 15px;
-	padding: 4rem;
+	padding: 3rem;
 
-	position: absolute;
 	bottom: -30%;
 
+	@media screen and (max-width: 1050px) {
+		bottom: -50%;
+	}
+
+	@media screen and (max-width: 870px) {
+		align-items: center;
+		flex-direction: column;
+		bottom: -80%;
+	}
+
+	@media screen and (max-width: 570px) {
+		bottom: -90%;
+	}
+
 	&__box {
+		display: flex;
+		flex-direction: column;
+
+		padding: 2.5rem;
 		flex: 1;
-		height: 100%;
 
 		// Margin right to every box with slight line separating them
 		&:not(:last-child) {
 			border-right: 1px solid rgba($color: $dark-grey, $alpha: 0.6);
-			margin-right: 3.5rem;
+		}
+
+		@media screen and (max-width: 870px) {
+			align-items: center;
+
+			&:not(:last-child) {
+				border-right: none;
+			}
 		}
 
 		// Location Box
-		&:nth-child(2) > &--info {
-			width: 70%;
-		}
+		// Check later
+		// &:nth-child(2) > &--info {
+		// 	width: 70%;
+		// }
 
 		// ISP Box
-		&:last-child > &--info {
-			width: 60%;
-		}
+		// &:last-child > &--info {
+		// 	width: 60%;
+		// }
 
 		&--label {
 			font-size: 1.4rem;

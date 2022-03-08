@@ -7,7 +7,9 @@
 	background-image: url('../../images/pattern-bg.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 32rem;
+
+	// height: 32rem;
+	position: relative;
 
 	&__heading {
 		font-weight: $font-bold;
@@ -21,7 +23,8 @@
 	&__input {
 		display: flex;
 
-		margin-top: 3rem;
+		margin-top: 5rem;
+		margin-bottom: 20rem;
 
 		&--input {
 			font-family: inherit;

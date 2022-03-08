@@ -2,12 +2,13 @@
 const input = document.querySelector('.header__input--input')
 const button = document.querySelector('.header__input--btn')
 
-// Panels
+// Header Panels
 const ipInfo = document.querySelector('.ip')
 const locationInfo = document.querySelector('.location')
 const timezoneInfo = document.querySelector('.timezone')
 const ispInfo = document.querySelector('.isp')
 
+// 'Submit' button
 button.addEventListener('click', () => {
 	console.log('clicked')
 	getIPAdress(input.value)
