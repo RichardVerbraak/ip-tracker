@@ -17,6 +17,7 @@ button.addEventListener('click', () => {
 // Initialize the map with own IP Address on page load
 const map = L.map('map', { zoomControl: false })
 
+// Add a tilelayer
 L.tileLayer(
 	'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
 	{
@@ -31,6 +32,7 @@ L.tileLayer(
 	}
 ).addTo(map)
 
+// Change the DOM to the new data
 const updateDOM = ({ ip, location, isp }) => {
 	const { city, country, region, timezone } = location
 
@@ -55,7 +57,7 @@ const drawNewMap = (lat, lng) => {
 		shadowAnchor: [22, 94],
 	})
 
-	// Adds the marker
+	// Adds the location marker
 	L.marker([lat, lng], { icon: myIcon }).addTo(map)
 }
 
@@ -81,4 +83,5 @@ const getIPAdress = async (address) => {
 	drawNewMap(lat, lng)
 }
 
+// Get initial
 getIPAdress()
