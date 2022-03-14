@@ -10,7 +10,6 @@ const ispInfo = document.querySelector('.isp')
 
 // 'Submit' button
 button.addEventListener('click', () => {
-	console.log('clicked')
 	getIPAdress(input.value)
 })
 
@@ -62,26 +61,36 @@ const drawNewMap = (lat, lng) => {
 }
 
 // Get data from IP -> update the header + draw new Leaflet map
-const getIPAdress = async (address) => {
-	// Fetch location based on IP
-	const res = await fetch(
-		`https://geo.ipify.org/api/v1?apiKey=at_6SceFSek4Lwg9pbTODk2tFenU1JX2&${
-			address && `ipAddress=${address}`
-		}`
-	)
-	const data = await res.json()
+const getIPAdress = async (query) => {
+	try {
+		// Check if valid domain name (checks for http prefix and w/o)
+		const domain = query?.match(
+			/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+		)
 
-	// Destructure needed data
-	const {
-		location: { lat, lng },
-	} = data
+		// Fetch data based on the query (no query will get the location of the user who send the request)
+		const res = await fetch(
+			`https://geo.ipify.org/api/v1?apiKey=at_6SceFSek4Lwg9pbTODk2tFenU1JX2${
+				domain ? `&domain=${query}` : query ? `&ipAddress=${query}` : ''
+			}`
+		)
 
-	// Change the DOM of the header to reflect the fetched data
-	updateDOM(data)
+		const data = await res.json()
 
-	// Draw the new Leaflet map
-	drawNewMap(lat, lng)
+		// Destructure needed data
+		const {
+			location: { lat, lng },
+		} = data
+
+		// Change the DOM of the header to reflect the fetched data
+		updateDOM(data)
+
+		// Draw the new Leaflet map
+		drawNewMap(lat, lng)
+	} catch (error) {
+		console.log(error)
+	}
 }
 
-// Get initial
+// Get initial location
 getIPAdress()
