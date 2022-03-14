@@ -60,6 +60,7 @@ const drawNewMap = (lat, lng) => {
 	L.marker([lat, lng], { icon: myIcon }).addTo(map)
 }
 
+// !!! Adblocker will block the fetch request
 // Get data from IP -> update the header + draw new Leaflet map
 const getIPAdress = async (query) => {
 	try {
